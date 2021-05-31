@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+import datetime as dt
 import requests 
 from twilio.rest import Client
 
@@ -54,13 +55,16 @@ stock_data = response.json()["Time Series (Daily)"]
 
 # Determine if there is a fluctuation 
 
-close_price = float(stock_data["2021-01-08"]['4. close'])
-previous_close_price  = float(stock_data["2021-01-07"]['4. close'])
+today = dt.date.today().strftime("%Y-%m-%d")
+yesterday = (today - dt.timedelta(days=1)).strftime("%Y-%m-%d")
+
+close_price = float(stock_data[today]['4. close'])
+previous_close_price  = float(stock_data[yesterday]['4. close'])
 percent_diff = round((((close_price - previous_close_price) /  previous_close_price) * 100),2)
 
 high_fluctuation = percent_diff > 5
 
-# Dealing with formatting the message 
+# Message Formatting
 
 body_text= """
 
@@ -74,6 +78,7 @@ if percent_diff > 0:
 else:
     chg_symbol = "🔻"
 
+# Send message if high fluctuation
 
 if high_fluctuation:
     
