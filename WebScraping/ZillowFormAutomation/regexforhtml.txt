@@ -1,5 +1,0 @@
-print(type(articles[0]))
-
-obj = re.compile('<.*?>')
-
-print(re.findall(obj,str(articles[0])))
