@@ -1,0 +1,1 @@
+A simple program with a CLI, that requests a year and currates a spotify playlist of the top 100 songs from that year. The names of the songs are discovered by scraping the Billboard Hot 100 Web page from that year, then each song is added to the playlist using Spotifies API. 

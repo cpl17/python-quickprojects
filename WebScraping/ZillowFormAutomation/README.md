@@ -1,0 +1,1 @@
+A program that takes a user provided Zillow Web Page, scrapes the page for addresses and prices, and fills this information into Google Sheets. 

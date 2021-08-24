@@ -4,10 +4,14 @@ from bs4 import BeautifulSoup
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import pprint
+from dotenv import load_dotenv
+import os
 
-SPOTID ="8524ce42464e40c48eb0d6bc681496eb"
-SPOTSCRT = "459d94c5f6604eed8b67f97dfcb21be1"
-REDIRECT_URI = "http://example.com"
+load_dotenv()
+
+SPOTID=os.getenv("SPOTID")
+SPOTSCRT = os.getenv("SPOTSCRT")
+REDIRECT_URI = os.getenv("REDIRECT_URI")
 
 BBURL = "https://www.billboard.com/charts/hot-100/"
 
